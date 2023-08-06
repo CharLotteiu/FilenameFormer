@@ -1,0 +1,25 @@
+{
+  "manifest_version": 3,
+  "name": "FilenameFormer",
+  "version": "0.0.1",
+  "description": "Form the filename for a newly created JIRA issue",
+  "content_scripts": [
+    {
+      "matches": ["*://*.activision.com/jira/browse/*"],
+      "all_frames": true,
+      "js": ["scripts/content.js"]
+    }
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "permissions": [
+      "contextMenus",
+      "storage",
+      "clipboardWrite",
+      "webRequest"
+  ],
+  "action": {
+    "default_popup": "popup.html"
+  }
+}
