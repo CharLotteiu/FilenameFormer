@@ -1,7 +1,15 @@
+var projct_setting = {
+    "IW9": {
+        "release_build": "customfield_10403-val"
+    },
+    "JUP": {
+        "release_build": "customfield_10307-val"
+    }
+};
+
 const bug_id = document.getElementById("key-val").innerHTML;
-const release_build = document.getElementById("customfield_10403-val") == null ?
-    document.getElementById("customfield_10307-val").textContent.trim():
-    document.getElementById("customfield_10403-val").textContent.trim();
+const project = bug_id.split("-")[0];
+const release_build = document.getElementById(projct_setting[project]["release_build"]).textContent.trim();
 const summary = document.getElementById("summary-val").textContent;
 const pattern = /([^-|–]*)(-|–)/g;
 const matches = summary.split(pattern);
