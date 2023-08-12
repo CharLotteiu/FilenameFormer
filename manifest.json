@@ -1,6 +1,6 @@
 {
   "manifest_version": 3,
-  "name": "FilenameFormer",
+  "name": "Filenamer",
   "version": "0.0.1",
   "description": "Form the filename for a newly created JIRA issue",
   "content_scripts": [
