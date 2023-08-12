@@ -1,3 +1,4 @@
+var temp;
 chrome.runtime.onMessage.addListener(
     function(message, sender, sendResponse) {
         switch(message.type) {

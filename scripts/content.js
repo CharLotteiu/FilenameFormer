@@ -1,5 +1,7 @@
 const bug_id = document.getElementById("key-val").innerHTML;
-const release_build = document.getElementById("customfield_10403-val").textContent.trim();
+const release_build = document.getElementById("customfield_10403-val") == null ?
+    document.getElementById("customfield_10307-val").textContent.trim():
+    document.getElementById("customfield_10403-val").textContent.trim();
 const summary = document.getElementById("summary-val").textContent;
 const pattern = /([^-|–]*)(-|–)/g;
 const matches = summary.split(pattern);
