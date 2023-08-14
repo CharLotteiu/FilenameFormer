@@ -9,7 +9,7 @@
   <body>
     <div class="label_input">
       <label for="bug_id">Bug ID</label>
-      <input id="bug_id" name="bug_id" size="50"/>
+      <input id="bug_id" name="bug_id"/>
     </div>
     <div class="label_input">
       <label for="lang">Language</label>
@@ -17,19 +17,21 @@
     </div>
     <div class="label_input">
       <label for="bug_type_one">Bug Type One</label>
-      <input id="bug_type_one" name="bug_type_one" size="50" />
+      <input id="bug_type_one" name="bug_type_one"/>
     </div>
     <div class="label_input">
       <label for="bug_type_two">Bug Type Two</label>
-      <input id="bug_type_two" name="bug_type_two" size="50" />
+      <input id="bug_type_two" name="bug_type_two"/>
     </div>
-    <div class="label_input">
-      <label for="release_id">Release ID</label><br/>
-      <input id="release_id" name="release_id" size="50" type="text"/>
-    </div>
+    <form id="buildForm">
+      <div class="label_input">
+        <label for="release_id">Release ID</label><br/>
+        <input id="release_id" name="release_id" type="text"/><button type="submit">Save it for today!</button>
+      </div>
+    </form>
     <div class="label_input">
       <label for="release_id">File Name</label>
-      <input id="file_name" name="file_name" size="50" />
+      <input id="file_name" name="file_name"/>
     </div>
   </body>
 </html>

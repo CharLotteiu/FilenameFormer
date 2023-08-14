@@ -6,6 +6,14 @@ function addOption(lang){
     obj.options.add(opt);
 }
 
+var buildForm = document.getElementById("buildForm");
+
+buildForm.addEventListener("submit", (e) => {
+    e.preventDefault();
+    var build_today = document.getElementById('release_id').value;
+    alert(build_today);
+});
+
 chrome.runtime.sendMessage({type: "getBugData"}, function(bugData) {
     if(typeof bugData == "undefined") {
         // That's kind of bad
