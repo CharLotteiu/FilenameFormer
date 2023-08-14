@@ -34,14 +34,8 @@ chrome.runtime.sendMessage({type: "getBugData"}, function(bugData) {
 
         document.getElementById('release_id').onchange = function(){
             var new_release = document.getElementById('release_id').value;
-            var new_filename_release;
-
-            if(typeof lang_selected != "undefined"){
-                new_filename_release = bugData.bugID + "_" + bugData.langs + "_" + bugData.bugType1 + "_" + bugData.bugType2 + "_" + new_release;
-            } else {
-                new_filename_release = bugData.bugID + "_" + lang_selected + "_" + bugData.bugType1 + "_" + bugData.bugType2 + "_" + new_release;
-            }
-
+            var lang_showed = document.getElementById('lang').value;
+            var new_filename_release = bugData.bugID + "_" + lang_showed + "_" + bugData.bugType1 + "_" + bugData.bugType2 + "_" + new_release;
             document.getElementById('file_name').value = new_filename_release;
         };
     }
