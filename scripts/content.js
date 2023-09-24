@@ -9,7 +9,8 @@ var projct_setting = {
 
 const bug_id = document.getElementById("key-val").innerHTML;
 const project = bug_id.split("-")[0];
-const release_build = document.getElementById(projct_setting[project]["release_build"]).textContent.trim();
+const release_build = document.getElementById(projct_setting[project]["release_build"]) != null ?
+    document.getElementById(projct_setting[project]["release_build"]).textContent.trim(): "";
 const summary = document.getElementById("summary-val").textContent;
 const pattern = /([^-|–]*)(-|–)/g;
 const matches = summary.split(pattern);
