@@ -45,10 +45,8 @@ chrome.runtime.sendMessage({type: "getBugData"}, function(bugData) {
             var copy_filename = document.getElementById('file_name').value;
 
             navigator.clipboard.writeText(copy_filename).then(function() {
-                //console.log('Async: Copying to clipboard was successful!');
-                alert('Async: Copying to clipboard was successful!');
+                console.log('Async: Copying to clipboard was successful!');
             }, function(err) {
-                //console.error('Async: Could not copy text: ', err);
                 alert('Async: Could not copy text: ', err);
             });
         };
