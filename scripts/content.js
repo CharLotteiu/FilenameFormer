@@ -28,9 +28,3 @@ var bugData = {
 };
 
 chrome.runtime.sendMessage({type: "sendBugData", bugData: bugData});
-
-// navigator.clipboard.writeText(filename).then(function() {
-//     console.log('Async: Copying to clipboard was successful!');
-// }, function(err) {
-//     console.error('Async: Could not copy text: ', err);
-// });

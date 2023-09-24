@@ -6,21 +6,15 @@ function addOption(lang){
     obj.options.add(opt);
 }
 
-var buildForm = document.getElementById("buildForm");
-
-buildForm.addEventListener("submit", (e) => {
-    e.preventDefault();
-    var build_today = document.getElementById('release_id').value;
-    alert(build_today);
-});
-
 chrome.runtime.sendMessage({type: "getBugData"}, function(bugData) {
     if(typeof bugData == "undefined") {
-        // That's kind of bad
+
+        alert("Didn't catch any bug data. \n Please check if you are on a correct bug page \n or try to use the extension again after the page is completely loaded.");
+
     } else {
 
         document.getElementById('bug_id').value = bugData.bugID;
-        document.getElementById('release_id').value = bugData.releaseBuild;
+        // document.getElementById('release_id').value = bugData.releaseBuild;
         document.getElementById('bug_type_one').value = bugData.bugType1;
         document.getElementById('bug_type_two').value = bugData.bugType2;
 
@@ -45,6 +39,18 @@ chrome.runtime.sendMessage({type: "getBugData"}, function(bugData) {
             var lang_showed = document.getElementById('lang').value;
             var new_filename_release = bugData.bugID + "_" + lang_showed + "_" + bugData.bugType1 + "_" + bugData.bugType2 + "_" + new_release;
             document.getElementById('file_name').value = new_filename_release;
+        };
+
+        document.getElementById('copy_text').onclick = function(){
+            var copy_filename = document.getElementById('file_name').value;
+
+            navigator.clipboard.writeText(copy_filename).then(function() {
+                //console.log('Async: Copying to clipboard was successful!');
+                alert('Async: Copying to clipboard was successful!');
+            }, function(err) {
+                //console.error('Async: Could not copy text: ', err);
+                alert('Async: Could not copy text: ', err);
+            });
         };
     }
 });

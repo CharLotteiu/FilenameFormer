@@ -17,3 +17,7 @@ html {
 .label_input select {
     font-size: smaller;
 }
+
+.label_input button {
+    margin-top: 5px;
+}
