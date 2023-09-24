@@ -17,7 +17,8 @@ const matches = summary.split(pattern);
 const language = matches[7].trim();
 const bug_type_1 = matches[10].trim();
 const bug_type_2 = matches[13].trim();
-const filename = bug_id + "_" + language + "_" + bug_type_1 + "_" + bug_type_2 + "_" + release_build;
+
+const filename = bug_id + "_" + language + "_" + bug_type_1 + "_" + bug_type_2;
 
 var bugData = {
     "bugID": bug_id,
