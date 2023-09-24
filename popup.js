@@ -14,7 +14,7 @@ chrome.runtime.sendMessage({type: "getBugData"}, function(bugData) {
     } else {
 
         document.getElementById('bug_id').value = bugData.bugID;
-        // document.getElementById('release_id').value = bugData.releaseBuild;
+        document.getElementById('release_id').value = bugData.releaseBuild;
         document.getElementById('bug_type_one').value = bugData.bugType1;
         document.getElementById('bug_type_two').value = bugData.bugType2;
 
