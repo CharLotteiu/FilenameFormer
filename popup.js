@@ -62,6 +62,11 @@ chrome.runtime.sendMessage({type: "getBugData"}, function(bugData) {
                 });
             };
 
+            document.getElementById('add_new').onclick = function(){
+                var original_filename = document.getElementById('file_name').value;
+                document.getElementById('file_name').value = "New_" + original_filename;
+            };
+
             document.getElementById('save_build').onclick = function(){
                 var today_build = document.getElementById('release_id').value;
                 chrome.storage.local.set({'BOTO': today_build});
