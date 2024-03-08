@@ -1,9 +1,27 @@
 function addOption(lang){
-    //根据id查找对象，
+    //Look for the select element by ID
     var obj=document.getElementById('lang');
     var opt = new Option(lang, lang)
-    //添加一个选项
+    //Add one more options
     obj.options.add(opt);
+}
+
+function checkEFIGS(lang){
+    if(lang.includes("E") && (lang != "ENAR")){
+        addOption("EN");
+    }
+    if(lang.includes("F")){
+        addOption("FR");
+    }
+    if(lang.includes("I")){
+        addOption("IT");
+    }
+    if(lang.includes("G")){
+        addOption("DE");
+    }
+    if(lang.includes("S") && (lang != "ZHS")){
+        addOption("ES");
+    }
 }
 
 
@@ -25,7 +43,6 @@ chrome.runtime.sendMessage({type: "getBugData"}, function(bugData) {
 
 
             document.getElementById('bug_id').value = bugData.bugID;
-            // document.getElementById('release_id').value = bugData.releaseBuild;
             document.getElementById('bug_type_one').value = bugData.bugType1;
             document.getElementById('bug_type_two').value = bugData.bugType2;
 
@@ -35,7 +52,12 @@ chrome.runtime.sendMessage({type: "getBugData"}, function(bugData) {
             } else {
                 var matches = bugData.langs.split("/");
                 matches.forEach(function(lang){
-                    addOption(lang);
+                    if(lang.match(/[EFIGS][EFIGS]+/)){
+                        checkEFIGS(lang);
+                    }
+                    else{
+                        addOption(lang);
+                    }
                 })
 
                 document.getElementById('lang').onchange = function(){
