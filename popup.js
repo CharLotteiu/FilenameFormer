@@ -34,11 +34,12 @@ chrome.runtime.sendMessage({type: "getBugData"}, function(bugData) {
         var build_show;
 
         chrome.storage.local.get('BOTO', function (result) {
-            if(typeof result == "undefined") {
+            if(typeof result.BOTO == "undefined") {
                 document.getElementById('release_id').value = bugData.releaseBuild;  
+                build_show = bugData.releaseBuild;
             } else {
-            document.getElementById('release_id').value = result.BOTO;
-            build_show = result.BOTO;
+                document.getElementById('release_id').value = result.BOTO;
+                build_show = result.BOTO;
             }
 
 
