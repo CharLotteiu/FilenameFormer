@@ -4,6 +4,9 @@ var projct_setting = {
     },
     "JUP": {
         "release_build": "customfield_10307-val"
+    },
+    "CER": {
+        "release_build": "customfield_10307-val"
     }
 };
 
